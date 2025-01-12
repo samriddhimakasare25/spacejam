@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI; // For UI components
 using TMPro;          // For TextMeshPro components
+using UnityEngine.SceneManagement; // For SceneManager
 
 public class KeywordAnalyzer : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class KeywordAnalyzer : MonoBehaviour
         }
 
         float percentage = ((float)keywordCount / totalWords) * 100;
-        resultText.text = $"Keyword Density: {percentage:F2}% ({keywordCount} keywords found in {totalWords} words)";
+        resultText.text = $"AI Score: {percentage:F2}%";
     }
 
     private int CountKeywordOccurrences(string text, string keyword)
@@ -52,5 +53,12 @@ public class KeywordAnalyzer : MonoBehaviour
         }
 
         return count;
+    }
+
+    public void RestartGame()
+    {
+        // Call RandomPromptGenerator to display a new prompt
+        FindObjectOfType<RandomPromptGenerator>().DisplayRandomPrompt();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
