@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public float MovementSpeed = 1f; // Movement speed modifier
+    public float movementSpeed = 5f; // Movement speed modifier
     private Camera mainCamera;
     private float halfWidth;
 
@@ -17,14 +15,19 @@ public class NewBehaviourScript : MonoBehaviour
         halfWidth = GetComponent<SpriteRenderer>().bounds.extents.x;
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        HandleMovement();
+    }
+
+    // Handle horizontal player movement
+    private void HandleMovement()
     {
         // Get the horizontal input
         float movement = Input.GetAxis("Horizontal");
 
         // Update the position based on input, speed, and deltaTime
-        Vector3 newPosition = transform.position + new Vector3(movement, 0, 0) * Time.deltaTime * MovementSpeed;
+        Vector3 newPosition = transform.position + new Vector3(movement, 0, 0) * Time.deltaTime * movementSpeed;
 
         // Clamp the new position to stay within the camera view
         newPosition.x = Mathf.Clamp(newPosition.x, GetCameraLeftBound() + halfWidth, GetCameraRightBound() - halfWidth);
