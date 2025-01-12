@@ -7,14 +7,10 @@ public class RandomPromptGenerator : MonoBehaviour
 
     private string[] prompts = // List of random prompts
     {
-        "Describe a memorable day in your life.",
-        "Explain how technology has changed the world.",
-        "What are your goals for the next 5 years?",
-        "Describe your favorite movie and why you like it.",
+        "Your Alien Girlfriend is mad at you write her a message.",
+        "Why are computer science students losing jobs",
+        "Aliens are boycotting Earth—what’s their reason?",
         "If you could travel anywhere, where would you go and why?",
-        "Explain how you would solve a complex problem.",
-        "What is your favorite book and why do you enjoy it?",
-        "Discuss a time when you overcame a challenge.",
         "What is your dream job and why?"
     };
 
