@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour
             Flip();
             ClampPosition();
         }
-        
     }
 
     private void FixedUpdate()
@@ -55,11 +54,11 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
-        
     }
 
     private bool IsGrounded()
     {
+        // Adjust the radius and position as necessary for your specific character
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
